@@ -1,4 +1,12 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ================================
+   Variáveis e Reset
+   ================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --bg: #0d0d0f;
@@ -13,6 +21,10 @@
   --btn-bg: #f0ede8;
   --btn-text: #0d0d0f;
 }
+
+/* ================================
+   Layout Base (html, body)
+   ================================ */
 
 html, body {
   height: 100%;
@@ -30,6 +42,8 @@ body {
   position: relative;
 }
 
+/* ===== Fundos Decorativos ===== */
+
 body::before {
   content: '';
   position: fixed;
@@ -46,13 +60,17 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  opacity: 0,4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves=[...]");
+  opacity: 0.4;
   pointer-events: none;
   z-index: 0;
 }
 
+/* ================================
+   Container Principal
+   ================================ */
+
 .container {
-  position: relative;
   z-index: 1;
   width: 100%;
   max-width: 480px;
@@ -67,6 +85,10 @@ body::after {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ================================
+   Branding e Título
+   ================================ */
 
 .brand {
   margin-bottom: 0.4rem;
@@ -95,6 +117,8 @@ body::after {
   color: var(--accent);
 }
 
+/* ===== Cabeçalho / Título Principal ===== */
+
 .headline {
   text-align: center;
   margin-bottom: 0.75rem;
@@ -116,6 +140,8 @@ body::after {
   color: var(--accent);
 }
 
+/* ====== Subtítulo ====== */
+
 .subheading {
   font-size: 0.85rem;
   font-weight: 400;
@@ -132,8 +158,11 @@ body::after {
   font-weight: 500;
 }
 
+/* ================================
+   Estilo do Card Principal
+   ================================ */
+
 .card {
-  position: position;
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -147,6 +176,8 @@ body::after {
   animation: fadeUp 0.7s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
+/* ===== Linha de Destaque do Card ===== */
+
 .card-accent-line {
   position: absolute;
   top: -1px;
@@ -158,6 +189,11 @@ body::after {
   opacity: 0.6;
 }
 
+/* ================================
+   Botões
+   ================================ */
+
+/* ---- Botão Google ---- */
 .btn-google {
   display: flex;
   align-items: center;
@@ -183,43 +219,7 @@ body::after {
   transform: translateY(-1px);
 }
 
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.divider::before, .divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-.input-email {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.input-email::placeholder { color: var(--muted); }
-
-.input-email:focus {
-  border-color: var(--accent);
-  background: rgba(200,185,154,0.04);
-}
-
+/* ---- Botão CTA ---- */
 .btn-cta {
   width: 100%;
   padding: 0.9rem 1.25rem;
@@ -239,6 +239,58 @@ body::after {
   opacity: 0.88;
   transform: translateY(-1px);
 }
+
+/* ================================
+   Inputs
+   ================================ */
+
+.input-email {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.input-email::placeholder {
+  color: var(--muted);
+}
+
+.input-email:focus {
+  border-color: var(--accent);
+  background: rgba(200,185,154,0.04);
+}
+
+/* ================================
+   Divisores e Textos Secundários
+   ================================ */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ================================
+   Texto de Privacidade / Links
+   ================================ */
 
 .privacy {
   font-size: 0.72rem;
